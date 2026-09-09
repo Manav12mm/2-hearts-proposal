@@ -29,18 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. CONTENT DATA CONFIGURATION
   const initialContentData = {
-    // Wed Sept 16 - Post 01
-    "2026-09-16": {
-      type: "post",
-      numBadge: "Post 01",
-      dateStr: "Wed, Sept 16",
-      niche: "Signature Coffee & Menu Grid",
-      hook: "Welcome to Two Hearts Cafe — Where Moments Bloom ☕✨",
-      content: "High-resolution 4-photo grid post showcasing heart latte art, avocado toast, berry pastries, and cozy table seating.",
-      audio: "Instagram Grid Post",
-      status: "Scheduled"
-    },
-    // Sat Sept 19 - Reel 01
+    // Sat Sept 19 - Reel 01 (Added per request)
     "2026-09-19": {
       type: "reel",
       numBadge: "Reel 01",
@@ -52,28 +41,30 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "Scheduled"
     },
 
-    // Wed Sept 23 - Post 02
-    "2026-09-23": {
+    // Tue Sept 22 - Post 01
+    "2026-09-22": {
       type: "post",
-      numBadge: "Post 02",
-      dateStr: "Wed, Sept 23",
-      niche: "Storefront Floral Arch Carousel",
-      hook: "Where moments feel magical — Two Hearts Cafe 🌸✨",
-      content: "Aesthetic Carousel post showing closeups of the floral entrance arch, outdoor lighting, and couples posing at the door.",
-      audio: "Instagram Carousel Post",
+      numBadge: "Post 01",
+      dateStr: "Tue, Sept 22",
+      niche: "Signature Coffee & Menu Grid",
+      hook: "Welcome to Two Hearts Cafe — Where Moments Bloom ☕✨",
+      content: "High-resolution 4-photo grid post showcasing heart latte art, avocado toast, berry pastries, and cozy table seating.",
+      audio: "Instagram Grid Post",
       status: "Scheduled"
     },
-    // Sat Sept 26 - Reel 02
-    "2026-09-26": {
+
+    // Fri Sept 25 - Reel 02
+    "2026-09-25": {
       type: "reel",
       numBadge: "Reel 02",
-      dateStr: "Sat, Sept 26",
-      niche: "Pink Wisteria Floral Ceiling Vibe",
-      hook: "The most Instagrammable pink floral ceiling in town 🌸♡",
-      content: "Aesthetic panning shots looking up at the hanging pink & lavender flowers, showing cozy plush velvet seating and warm ambient glow.",
-      audio: "Lofi Chill Cafe Beat",
+      dateStr: "Fri, Sept 25",
+      niche: "Storefront Floral Arch Romantic Vibe",
+      hook: "Where moments feel magical — Two Hearts Cafe 🌸✨",
+      content: "Romantic date aesthetic reel showing couples at marble tables under warm lighting and glowing floral arch entrance.",
+      audio: "Lofi Chill Romantic Beat",
       status: "Scheduled"
     },
+
     // Sun Sept 27 - Event 01 (WHITE BADGE)
     "2026-09-27": {
       type: "event",
@@ -85,10 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
       audio: "Aesthetic Cafe Lounge & Soft Acoustic",
       status: "Confirmed Sunday Event"
     },
-    // Mon Sept 28 - Reel 05 (EVENT 01 RECAP REEL)
+
+    // Mon Sept 28 - Reel 03 (EVENT 01 RECAP REEL)
     "2026-09-28": {
       type: "reel",
-      numBadge: "Reel 05",
+      numBadge: "Reel 03",
       dateStr: "Mon, Sept 28",
       niche: "Event 01 Recap & Review Reel 🎥",
       hook: "Recap: Highlights from our Couple Canvas Paint Night! 🎨💖",
@@ -97,51 +89,54 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "Event Recap Reel"
     },
 
-    // Wed Sept 30 - Post 03
+    // Wed Sept 30 - Post 02
     "2026-09-30": {
       type: "post",
-      numBadge: "Post 03",
+      numBadge: "Post 02",
       dateStr: "Wed, Sept 30",
+      niche: "Storefront Floral Arch Carousel",
+      hook: "Aesthetic corners at Two Hearts Cafe 🌸✨",
+      content: "Aesthetic Carousel post showing closeups of the floral entrance arch, outdoor lighting, and couples posing at the door.",
+      audio: "Instagram Carousel Post",
+      status: "Scheduled"
+    },
+
+    // Sat Oct 03 - Reel 04
+    "2026-10-03": {
+      type: "reel",
+      numBadge: "Reel 04",
+      dateStr: "Sat, Oct 03",
+      niche: "Pink Wisteria Floral Ceiling Vibe",
+      hook: "The most Instagrammable pink floral ceiling in town 🌸♡",
+      content: "Aesthetic panning shots looking up at the hanging pink & lavender flowers, showing cozy plush velvet seating and warm ambient glow.",
+      audio: "Lofi Chill Cafe Beat",
+      status: "Scheduled"
+    },
+
+    // Tue Oct 06 - Post 03
+    "2026-10-06": {
+      type: "post",
+      numBadge: "Post 03",
+      dateStr: "Tue, Oct 06",
       niche: "Chef Special Dessert Showcase",
       hook: "Sweet cravings solved at Two Hearts Cafe 🍰♡",
       content: "Vibrant single photo post highlighting our signature heart chocolate fondant & berry tart with warm lighting.",
       audio: "Instagram Single Post",
       status: "Scheduled"
     },
-    // Sat Oct 03 - Reel 03
-    "2026-10-03": {
-      type: "reel",
-      numBadge: "Reel 03",
-      dateStr: "Sat, Oct 03",
-      niche: "Heart Latte Art ASMR",
-      hook: "Watch how we craft our signature Heart Latte Art ☕♡",
-      content: "ASMR close-up of steaming milk, pouring heart latte art into a ceramic cup, served on marble top tables under warm floral lighting.",
-      audio: "Aesthetic Romantic Pop Track",
-      status: "Scheduled"
-    },
 
-    // Wed Oct 07 - Post 04
-    "2026-10-07": {
-      type: "post",
-      numBadge: "Post 04",
-      dateStr: "Wed, Oct 07",
-      niche: "Aesthetic Photo Spots Carousel",
-      hook: "Top 3 Photo Spots at @two_hearts_cafe 📸✨",
-      content: "Carousel post highlighting 1) Under the Pink Canopy, 2) Storefront Entrance, 3) Neon Heart Backdrop.",
-      audio: "Instagram Carousel Post",
-      status: "Scheduled"
-    },
-    // Sat Oct 10 - Reel 04
-    "2026-10-10": {
+    // Fri Oct 09 - Reel 05
+    "2026-10-09": {
       type: "reel",
-      numBadge: "Reel 04",
-      dateStr: "Sat, Oct 10",
+      numBadge: "Reel 05",
+      dateStr: "Fri, Oct 09",
       niche: "Behind The Scenes Fresh Bakes",
       hook: "The secret behind Two Hearts Cafe's viral Heart Pastries...",
       content: "Warm kitchen BTS footage showing our chef baking fresh raspberry tarts and plating delicate desserts with love.",
       audio: "Heartwarming Piano Melody",
       status: "Scheduled"
     },
+
     // Sun Oct 11 - Event 02 (WHITE BADGE)
     "2026-10-11": {
       type: "event",
@@ -153,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
       audio: "Live Comedy Night Soundtrack",
       status: "Confirmed Sunday Event"
     },
+
     // Mon Oct 12 - Reel 06 (EVENT 02 RECAP REEL)
     "2026-10-12": {
       type: "reel",
@@ -165,10 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "Event Recap Reel"
     },
 
-    // Wed Oct 14 - Post 05
+    // Wed Oct 14 - Post 04
     "2026-10-14": {
       type: "post",
-      numBadge: "Post 05",
+      numBadge: "Post 04",
       dateStr: "Wed, Oct 14",
       niche: "Monthly Recap & Highlights Grid",
       hook: "1 Month of Warmth & Memories at Two Hearts Cafe 💖",
@@ -179,14 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   let reelsData = initialContentData;
-  localStorage.setItem('twohearts_content_v9', JSON.stringify(reelsData));
+  localStorage.setItem('twohearts_content_v12', JSON.stringify(reelsData));
 
   function saveReelsData() {
-    localStorage.setItem('twohearts_content_v9', JSON.stringify(reelsData));
+    localStorage.setItem('twohearts_content_v12', JSON.stringify(reelsData));
   }
 
-  // 3. CALENDAR GENERATION (ROCK-SOLID SINGLE 7-COLUMN GRID WITH FULL-WIDTH MONTH BANNERS)
-  const daysGrid = document.getElementById('calendar-days-container');
+  // 3. CALENDAR GENERATION (CONTINUOUS SINGLE 1-MONTH CALENDAR FORMAT)
+  const calendarMonthsWrapper = document.getElementById('calendar-months-wrapper');
   const tooltip = document.getElementById('reel-hover-tooltip');
   
   const ttReelNum = document.getElementById('tt-reel-num');
@@ -198,112 +194,113 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeFilter = 'all';
 
   function renderCalendar() {
-    daysGrid.innerHTML = '';
+    calendarMonthsWrapper.innerHTML = '';
 
-    // --- SEPTEMBER 2026 BANNER ---
-    const septBanner = document.createElement('div');
-    septBanner.className = 'month-grid-banner';
-    septBanner.innerHTML = `<span>September 2026</span> <small>(Sept 16 – Sept 30)</small>`;
-    daysGrid.appendChild(septBanner);
+    const container = document.createElement('div');
+    container.className = 'continuous-calendar-block';
 
-    // September padding (Sept 1, 2026 was Tuesday -> index 2)
-    const septStartWeekdayIndex = 2;
-    for (let i = 0; i < septStartWeekdayIndex; i++) {
+    // Single Continuous Header
+    const cardHeader = document.createElement('div');
+    cardHeader.className = 'month-card-header';
+    cardHeader.innerHTML = `
+      <div class="month-card-title"><i class="fa-solid fa-calendar-week"></i> Campaign Schedule (Sept 16 – Oct 16, 2026)</div>
+      <div class="month-card-range">Continuous Timeline</div>
+    `;
+    container.appendChild(cardHeader);
+
+    // 7 Weekday Headers
+    const weekdaysRow = document.createElement('div');
+    weekdaysRow.className = 'calendar-weekdays-row';
+    weekdaysRow.innerHTML = `
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    `;
+    container.appendChild(weekdaysRow);
+
+    // 7-Column Days Grid
+    const daysGrid = document.createElement('div');
+    daysGrid.className = 'calendar-days-row-grid';
+
+    // Sept 16, 2026 is Wednesday (weekday index 3: Sun=0, Mon=1, Tue=2, Wed=3)
+    // 3 empty offset slots before Sept 16
+    for (let i = 0; i < 3; i++) {
       const emptyCell = document.createElement('div');
-      emptyCell.className = 'cal-day empty';
+      emptyCell.className = 'clean-cal-day empty';
       daysGrid.appendChild(emptyCell);
     }
 
-    // Render September Days 1 to 30
-    for (let day = 1; day <= 30; day++) {
+    // September days: 16 to 30
+    for (let day = 16; day <= 30; day++) {
       const dayStr = day < 10 ? `0${day}` : `${day}`;
       const fullDate = `2026-09-${dayStr}`;
-      const isInRange = day >= 16;
       const item = reelsData[fullDate];
-
-      const cell = createDayCell(day, `Sept ${day}`, fullDate, isInRange, item);
-      if (cell) daysGrid.appendChild(cell);
+      const cellLabel = `Sept ${day}`;
+      const cell = createCleanDayCell(cellLabel, fullDate, true, item);
+      daysGrid.appendChild(cell);
     }
 
-    // --- OCTOBER 2026 BANNER ---
-    const octBanner = document.createElement('div');
-    octBanner.className = 'month-grid-banner oct-banner';
-    octBanner.innerHTML = `<span>October 2026</span> <small>(Oct 1 – Oct 16)</small>`;
-    daysGrid.appendChild(octBanner);
-
-    // October padding (Oct 1, 2026 was Thursday -> index 4)
-    const octStartWeekdayIndex = 4;
-    for (let i = 0; i < octStartWeekdayIndex; i++) {
-      const emptyCell = document.createElement('div');
-      emptyCell.className = 'cal-day empty';
-      daysGrid.appendChild(emptyCell);
-    }
-
-    // Render October Days 1 to 16
+    // October days: 1 to 16
     for (let day = 1; day <= 16; day++) {
       const dayStr = day < 10 ? `0${day}` : `${day}`;
       const fullDate = `2026-10-${dayStr}`;
-      const isInRange = day <= 16;
       const item = reelsData[fullDate];
-
-      const cell = createDayCell(day, `Oct ${day}`, fullDate, isInRange, item);
-      if (cell) daysGrid.appendChild(cell);
+      const cellLabel = `Oct ${day}`;
+      const cell = createCleanDayCell(cellLabel, fullDate, true, item);
+      daysGrid.appendChild(cell);
     }
+
+    // Oct 16 is Friday (weekday index 5). 1 empty slot for Saturday (Oct 17) to complete 7-col grid
+    const emptyEnd = document.createElement('div');
+    emptyEnd.className = 'clean-cal-day empty';
+    daysGrid.appendChild(emptyEnd);
+
+    container.appendChild(daysGrid);
+    calendarMonthsWrapper.appendChild(container);
 
     renderReelsDeck();
   }
 
-  function createDayCell(dayNum, labelStr, fullDate, inRange, item) {
+  function createCleanDayCell(dayNum, fullDate, inRange, item) {
     const hasItem = !!item;
-    
-    if (activeFilter === 'reels' && (!hasItem || item.type !== 'reel')) return null;
-    if (activeFilter === 'posts' && (!hasItem || item.type !== 'post')) return null;
-    if (activeFilter === 'events' && (!hasItem || item.type !== 'event')) return null;
-
     const cell = document.createElement('div');
-    
+
     let typeClass = '';
+    let filterHide = false;
+
     if (hasItem) {
       if (item.type === 'reel') typeClass = 'is-reel-day';
       else if (item.type === 'post') typeClass = 'is-post-day';
       else if (item.type === 'event') typeClass = 'is-event-day';
+
+      if (activeFilter === 'reels' && item.type !== 'reel') filterHide = true;
+      if (activeFilter === 'posts' && item.type !== 'post') filterHide = true;
+      if (activeFilter === 'events' && item.type !== 'event') filterHide = true;
     }
 
-    cell.className = `cal-day ${typeClass} ${!inRange ? 'out-of-range' : ''}`;
+    cell.className = `clean-cal-day ${typeClass} ${!inRange ? 'out-of-range' : ''} ${filterHide ? 'filter-hidden' : ''}`;
     cell.dataset.date = fullDate;
 
-    if (!inRange) {
-      cell.style.opacity = '0.3';
-    }
+    // Date Number
+    const numDiv = document.createElement('div');
+    numDiv.className = 'clean-day-num';
+    numDiv.innerText = dayNum;
+    cell.appendChild(numDiv);
 
-    const header = document.createElement('div');
-    header.className = 'cal-day-num';
-    header.innerHTML = `<span>${labelStr}</span>`;
-    cell.appendChild(header);
-
-    if (hasItem) {
-      const contentBox = document.createElement('div');
-      contentBox.className = 'cal-day-content';
-
-      const chip = document.createElement('div');
+    // Pill Badge if item exists
+    if (hasItem && !filterHide) {
+      const badgeDiv = document.createElement('div');
+      
       if (item.type === 'reel') {
-        chip.className = 'reel-chip';
-        chip.innerHTML = `<i class="fa-solid fa-film"></i> <span>${item.numBadge}</span>`;
+        badgeDiv.className = 'pill-badge pill-pink';
+        badgeDiv.innerHTML = `<i class="fa-solid fa-film"></i> <span>${item.numBadge}</span>`;
       } else if (item.type === 'post') {
-        chip.className = 'post-chip';
-        chip.innerHTML = `<i class="fa-solid fa-image"></i> <span>${item.numBadge}</span>`;
+        badgeDiv.className = 'pill-badge pill-gold';
+        badgeDiv.innerHTML = `<i class="fa-solid fa-image"></i> <span>${item.numBadge}</span>`;
       } else if (item.type === 'event') {
-        chip.className = 'event-chip';
-        chip.innerHTML = `<i class="fa-solid fa-star"></i> <span>${item.numBadge}</span>`;
+        badgeDiv.className = 'pill-badge pill-white';
+        badgeDiv.innerHTML = `<i class="fa-solid fa-star"></i> <span>${item.numBadge}</span>`;
       }
-      contentBox.appendChild(chip);
 
-      const nichePreview = document.createElement('div');
-      nichePreview.className = 'reel-niche-preview';
-      nichePreview.innerText = item.niche;
-      contentBox.appendChild(nichePreview);
-
-      cell.appendChild(contentBox);
+      cell.appendChild(badgeDiv);
 
       // HOVER EVENTS FOR TOOLTIP
       cell.addEventListener('mouseenter', (e) => showTooltip(e, item));
@@ -330,6 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ttConcept.innerText = item.content;
     ttAudio.innerText = item.audio;
 
+    tooltip.className = `reel-hover-tooltip tt-type-${item.type}`;
     tooltip.classList.remove('hidden');
     moveTooltip(e);
   }

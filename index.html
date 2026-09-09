@@ -93,7 +93,7 @@
       
       <h1 class="hero-title">Elevating <span class="gradient-text">Two Hearts Cafe</span> Instagram Presence</h1>
       <p class="hero-subtitle">
-        Structured Schedule: <strong>Saturdays = Reels</strong>, <strong>Wednesdays = Posts</strong>, <strong>Sundays = Events</strong>, and <strong>Mondays = Event Recap Reels</strong>!
+        Structured Calendar: <strong>Saturdays = Reels</strong>, <strong>Wednesdays = Posts</strong>, <strong>Sundays = Events</strong>, and <strong>Mondays = Event Recap Reels</strong>!
       </p>
 
       <div class="scroll-prompt-indicator">
@@ -121,14 +121,14 @@
           <i class="fa-solid fa-film"></i>
           <div>
             <span class="meta-label">Reel Schedule</span>
-            <strong class="meta-value">Saturdays + Post-Event Mondays</strong>
+            <strong class="meta-value">Fridays / Saturdays + Mondays</strong>
           </div>
         </div>
         <div class="meta-card">
           <i class="fa-solid fa-image"></i>
           <div>
             <span class="meta-label">Post Schedule</span>
-            <strong class="meta-value">Every Wednesday</strong>
+            <strong class="meta-value">Tuesdays & Wednesdays</strong>
           </div>
         </div>
         <div class="meta-card">
@@ -200,43 +200,43 @@
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon"><i class="fa-solid fa-film"></i></div>
-          <h3>Saturdays • High-Impact Reels</h3>
-          <p>Aesthetic short-form video reels posted every Saturday to capture weekend coffee & date night traffic.</p>
-          <span class="badge">Every Saturday</span>
+          <h3>High-Impact Aesthetic Reels</h3>
+          <p>Short-form video reels posted on prime days (Sept 25, Sept 28, Oct 3, Oct 9, Oct 12) capturing coffee, bts & event highlights.</p>
+          <span class="badge">Reels Schedule</span>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon"><i class="fa-solid fa-image"></i></div>
-          <h3>Wednesdays • Feed Posts & Grids</h3>
-          <p>High-resolution feed carousels & photo grids posted every Wednesday to maintain steady midweek engagement.</p>
-          <span class="badge badge-gold">Every Wednesday</span>
+          <h3>Feed Carousels & Photo Grids</h3>
+          <p>High-resolution feed carousels & photo grids posted on Tuesdays & Wednesdays (Sept 22, Sept 30, Oct 6, Oct 14).</p>
+          <span class="badge badge-gold">Posts Schedule</span>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
           <h3>Sundays • Special Events (White Badge)</h3>
           <p>Sunday Evening Special Events (Sept 27 BYO Cup Painting & Oct 11 Coffee & Comedy Standup Night).</p>
-          <span class="badge badge-white">Next Sundays</span>
+          <span class="badge badge-white">Confirmed Sundays</span>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon"><i class="fa-solid fa-clapperboard"></i></div>
           <h3>Mondays • Post-Event Review Reels</h3>
-          <p>Event recap & review reel edits posted on Mondays right after the Sunday event to showcase highlights & viral reactions.</p>
+          <p>Event recap & review reel edits posted on Mondays right after Sunday events to showcase highlights & customer reactions.</p>
           <span class="badge">Monday Recaps</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Calendar Section -->
+  <!-- Clean Real Calendar Section -->
   <section id="calendar" class="section calendar-section">
     <div class="container">
       <div class="section-header">
         <div>
           <span class="section-tag"><i class="fa-solid fa-calendar-days"></i> Interactive Schedule</span>
           <h2>Content Calendar (Sept 16 – Oct 16)</h2>
-          <p><span class="highlight-pink">Saturdays & Post-Event Mondays</span> (Reels), <span class="highlight-gold">Wednesdays</span> (Posts), and <span class="highlight-white">Sundays</span> (Events).</p>
+          <p>Clean monthly calendar view. Hover over any color-marked date to reveal full details.</p>
         </div>
         <div class="calendar-legend">
           <div class="legend-item"><span class="dot reel-dot"></span> Reels (Pink)</div>
@@ -246,33 +246,20 @@
         </div>
       </div>
 
-      <!-- Calendar Container -->
+      <!-- Calendar Wrapper -->
       <div class="calendar-wrapper glass-card">
-        <div class="calendar-header">
-          <div class="calendar-month-title">
-            <i class="fa-regular fa-calendar"></i>
-            <span id="calendar-range-title">September 16, 2026 – October 16, 2026</span>
-          </div>
+        <div class="calendar-controls">
           <div class="calendar-filters">
-            <button class="filter-btn active" data-filter="all">All Days</button>
-            <button class="filter-btn" data-filter="reels">Reels (Pink)</button>
-            <button class="filter-btn" data-filter="posts">Posts (Gold)</button>
+            <button class="filter-btn active" data-filter="all">All Scheduled Days</button>
+            <button class="filter-btn" data-filter="reels">Reels Only (Pink)</button>
+            <button class="filter-btn" data-filter="posts">Posts Only (Gold)</button>
             <button class="filter-btn" data-filter="events">Sunday Events (White)</button>
           </div>
         </div>
 
-        <div class="calendar-weekdays">
-          <div>Sun</div>
-          <div>Mon</div>
-          <div>Tue</div>
-          <div>Wed</div>
-          <div>Thu</div>
-          <div>Fri</div>
-          <div>Sat</div>
-        </div>
-
-        <div class="calendar-days-grid" id="calendar-days-container">
-          <!-- Dynamically populated by app.js -->
+        <!-- Rendered by app.js: Clean stacked Month Cards -->
+        <div id="calendar-months-wrapper" class="months-stack-wrapper">
+          <!-- Populated by app.js -->
         </div>
       </div>
     </div>
@@ -324,7 +311,7 @@
       </div>
     </div>
     <div class="tooltip-footer">
-      <small><i class="fa-solid fa-mouse-pointer"></i> Click day to view or edit details</small>
+      <small><i class="fa-solid fa-mouse-pointer"></i> Click date cell to edit details</small>
     </div>
   </div>
 
