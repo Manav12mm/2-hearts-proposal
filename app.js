@@ -28,11 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 2. CONTENT DATA CONFIGURATION
-  // Rules:
-  // - Reels every Saturday
-  // - Posts every Wednesday
-  // - Events on Sundays (Sept 27 & Oct 11)
-  // - Event Recap Reel on Monday after Event (Sept 28 & Oct 12)
   const initialContentData = {
     // Wed Sept 16 - Post 01
     "2026-09-16": {
@@ -183,19 +178,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Always refresh dataset v7
   let reelsData = initialContentData;
-  localStorage.setItem('twohearts_content_v7', JSON.stringify(reelsData));
+  localStorage.setItem('twohearts_content_v8', JSON.stringify(reelsData));
 
   function saveReelsData() {
-    localStorage.setItem('twohearts_content_v7', JSON.stringify(reelsData));
+    localStorage.setItem('twohearts_content_v8', JSON.stringify(reelsData));
   }
 
-  // 3. CALENDAR GENERATION (SEPT 16 - OCT 16, 2026)
-  const calendarGrid = document.getElementById('calendar-days-container');
+  // 3. CALENDAR GENERATION (WELL-SPACED MONTH SECTIONS: SEPT 16-30 & OCT 1-16)
+  const calendarContainer = document.getElementById('calendar-days-container');
   const tooltip = document.getElementById('reel-hover-tooltip');
   
-  // Tooltip fields
   const ttReelNum = document.getElementById('tt-reel-num');
   const ttDate = document.getElementById('tt-date');
   const ttNiche = document.getElementById('tt-niche');
@@ -205,51 +198,76 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeFilter = 'all';
 
   function renderCalendar() {
-    calendarGrid.innerHTML = '';
-    
-    // Sept 1, 2026 was a Tuesday (index 2)
-    const septStartDayIndex = 2; 
+    calendarContainer.innerHTML = '';
 
-    // Render empty padding slots before Sept 1
-    for (let i = 0; i < septStartDayIndex; i++) {
-      const emptyDiv = document.createElement('div');
-      emptyDiv.className = 'cal-day empty';
-      calendarGrid.appendChild(emptyDiv);
-    }
+    // Create Month Section 1: September 2026 (Sept 16 - Sept 30)
+    const septSection = createMonthBlock("September 2026", "Sept 16 – Sept 30", 2, 1, 30, "09");
+    calendarContainer.appendChild(septSection);
 
-    // September Days 1 to 30
-    for (let day = 1; day <= 30; day++) {
-      const monthStr = '09';
-      const dayStr = day < 10 ? `0${day}` : `${day}`;
-      const fullDate = `2026-${monthStr}-${dayStr}`;
-      
-      const isInProposalRange = day >= 16;
-      const contentInfo = reelsData[fullDate];
-
-      createCalendarDayCell(day, `Sept ${day}`, fullDate, isInProposalRange, contentInfo);
-    }
-
-    // October Days 1 to 16
-    for (let day = 1; day <= 16; day++) {
-      const monthStr = '10';
-      const dayStr = day < 10 ? `0${day}` : `${day}`;
-      const fullDate = `2026-${monthStr}-${dayStr}`;
-      
-      const isInProposalRange = true;
-      const contentInfo = reelsData[fullDate];
-
-      createCalendarDayCell(day, `Oct ${day}`, fullDate, isInProposalRange, contentInfo);
-    }
+    // Create Month Section 2: October 2026 (Oct 1 - Oct 16)
+    const octSection = createMonthBlock("October 2026", "Oct 1 – Oct 16", 4, 1, 16, "10");
+    calendarContainer.appendChild(octSection);
 
     renderReelsDeck();
   }
 
-  function createCalendarDayCell(dayNum, labelStr, fullDate, inRange, item) {
+  function createMonthBlock(monthName, subtitle, startWeekdayIndex, startDay, endDay, monthStr) {
+    const monthBlock = document.createElement('div');
+    monthBlock.className = 'month-block-section';
+
+    const monthHeader = document.createElement('div');
+    monthHeader.className = 'month-block-header';
+    monthHeader.innerHTML = `
+      <div class="month-title-box">
+        <span class="month-name">${monthName}</span>
+        <span class="month-sub">${subtitle}</span>
+      </div>
+    `;
+    monthBlock.appendChild(monthHeader);
+
+    // Weekdays header
+    const weekdaysDiv = document.createElement('div');
+    weekdaysDiv.className = 'calendar-weekdays';
+    weekdaysDiv.innerHTML = `
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    `;
+    monthBlock.appendChild(weekdaysDiv);
+
+    // Days Grid
+    const daysGrid = document.createElement('div');
+    daysGrid.className = 'calendar-days-grid';
+
+    // Empty padding slots
+    for (let i = 0; i < startWeekdayIndex; i++) {
+      const emptyCell = document.createElement('div');
+      emptyCell.className = 'cal-day empty';
+      daysGrid.appendChild(emptyCell);
+    }
+
+    // Populate days
+    for (let day = startDay; day <= endDay; day++) {
+      const dayStr = day < 10 ? `0${day}` : `${day}`;
+      const fullDate = `2026-${monthStr}-${dayStr}`;
+      
+      const isInRange = monthStr === '09' ? day >= 16 : day <= 16;
+      const item = reelsData[fullDate];
+
+      const cell = createDayCell(day, `${monthStr === '09' ? 'Sept' : 'Oct'} ${day}`, fullDate, isInRange, item);
+      if (cell) {
+        daysGrid.appendChild(cell);
+      }
+    }
+
+    monthBlock.appendChild(daysGrid);
+    return monthBlock;
+  }
+
+  function createDayCell(dayNum, labelStr, fullDate, inRange, item) {
     const hasItem = !!item;
     
-    if (activeFilter === 'reels' && (!hasItem || item.type !== 'reel')) return;
-    if (activeFilter === 'posts' && (!hasItem || item.type !== 'post')) return;
-    if (activeFilter === 'events' && (!hasItem || item.type !== 'event')) return;
+    if (activeFilter === 'reels' && (!hasItem || item.type !== 'reel')) return null;
+    if (activeFilter === 'posts' && (!hasItem || item.type !== 'post')) return null;
+    if (activeFilter === 'events' && (!hasItem || item.type !== 'event')) return null;
 
     const cell = document.createElement('div');
     
@@ -269,12 +287,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const header = document.createElement('div');
     header.className = 'cal-day-num';
-    header.innerText = labelStr;
+    header.innerHTML = `<span>${labelStr}</span> ${hasItem ? `<span class="day-status-dot"></span>` : ''}`;
     cell.appendChild(header);
 
     if (hasItem) {
+      const contentBox = document.createElement('div');
+      contentBox.className = 'cal-day-content';
+
       const chip = document.createElement('div');
-      
       if (item.type === 'reel') {
         chip.className = 'reel-chip';
         chip.innerHTML = `<i class="fa-solid fa-film"></i> <span>${item.numBadge}</span>`;
@@ -285,13 +305,14 @@ document.addEventListener('DOMContentLoaded', () => {
         chip.className = 'event-chip';
         chip.innerHTML = `<i class="fa-solid fa-star"></i> <span>${item.numBadge} (White)</span>`;
       }
-      
-      cell.appendChild(chip);
+      contentBox.appendChild(chip);
 
       const nichePreview = document.createElement('div');
       nichePreview.className = 'reel-niche-preview';
       nichePreview.innerText = item.niche;
-      cell.appendChild(nichePreview);
+      contentBox.appendChild(nichePreview);
+
+      cell.appendChild(contentBox);
 
       // HOVER EVENTS FOR TOOLTIP
       cell.addEventListener('mouseenter', (e) => showTooltip(e, item));
@@ -302,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cell.addEventListener('click', () => openEditModal(fullDate, item));
     }
 
-    calendarGrid.appendChild(cell);
+    return cell;
   }
 
   // 4. HOVER TOOLTIP HANDLERS
@@ -323,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function moveTooltip(e) {
-    const tooltipWidth = 330;
+    const tooltipWidth = 340;
     const tooltipHeight = 260;
     
     let x = e.clientX + 15;

@@ -71,7 +71,7 @@ body {
 
 /* LAYOUT CONTAINER */
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -194,16 +194,6 @@ body {
 .btn-sm {
   padding: 6px 14px;
   font-size: 0.8rem;
-}
-
-.btn-lg {
-  padding: 16px 36px;
-  font-size: 1.05rem;
-}
-
-.btn-block {
-  width: 100%;
-  justify-content: center;
 }
 
 /* HERO PARALLAX STAGE */
@@ -647,7 +637,7 @@ body {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
-/* CALENDAR SECTION */
+/* CALENDAR SECTION STYLING & MONTH BLOCKS */
 .calendar-section .section-header {
   display: flex;
   justify-content: space-between;
@@ -658,9 +648,9 @@ body {
 
 .calendar-legend {
   display: flex;
-  gap: 16px;
+  gap: 18px;
   background: var(--bg-card);
-  padding: 12px 20px;
+  padding: 12px 22px;
   border-radius: 30px;
   border: 1px solid var(--border-glass);
   font-size: 0.85rem;
@@ -700,21 +690,21 @@ body {
 }
 
 .calendar-wrapper {
-  padding: 32px;
+  padding: 36px;
 }
 
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   flex-wrap: wrap;
   gap: 16px;
 }
 
 .calendar-month-title {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -723,9 +713,9 @@ body {
 
 .calendar-filters {
   display: flex;
-  gap: 6px;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 4px;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 6px;
   border-radius: 30px;
   flex-wrap: wrap;
 }
@@ -734,9 +724,9 @@ body {
   background: transparent;
   border: none;
   color: var(--text-muted);
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition-fast);
@@ -745,6 +735,42 @@ body {
 .filter-btn.active, .filter-btn:hover {
   background: var(--primary-pink);
   color: #fff;
+  box-shadow: 0 4px 12px var(--primary-pink-glow);
+}
+
+/* MONTH BLOCK SECTION */
+.month-block-section {
+  margin-bottom: 44px;
+}
+
+.month-block-section:last-child {
+  margin-bottom: 0;
+}
+
+.month-block-header {
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-pink);
+}
+
+.month-title-box {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.month-name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 0.5px;
+}
+
+.month-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
 .calendar-weekdays {
@@ -764,16 +790,16 @@ body {
 .calendar-days-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 12px;
+  gap: 14px;
 }
 
-/* CALENDAR DAY CELL */
+/* CALENDAR DAY CELL STYLING */
 .cal-day {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-md);
-  min-height: 110px;
-  padding: 12px;
+  min-height: 125px;
+  padding: 14px 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -783,7 +809,7 @@ body {
 }
 
 .cal-day.empty {
-  opacity: 0.2;
+  opacity: 0.15;
   background: transparent;
   border-color: transparent;
 }
@@ -792,6 +818,22 @@ body {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.day-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.cal-day-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 /* REEL DAY (PINK) */
@@ -804,8 +846,8 @@ body {
 
 .cal-day.is-reel-day:hover {
   background: rgba(230, 57, 86, 0.22);
-  transform: scale(1.03);
-  box-shadow: 0 8px 25px rgba(230, 57, 86, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(230, 57, 86, 0.45);
 }
 
 .cal-day.is-reel-day .cal-day-num {
@@ -822,15 +864,15 @@ body {
 
 .cal-day.is-post-day:hover {
   background: rgba(244, 196, 125, 0.22);
-  transform: scale(1.03);
-  box-shadow: 0 8px 25px rgba(244, 196, 125, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(244, 196, 125, 0.45);
 }
 
 .cal-day.is-post-day .cal-day-num {
   color: var(--accent-gold);
 }
 
-/* WEEKEND EVENT DAY (WHITE - CUSTOM INPUT) */
+/* WEEKEND EVENT DAY (WHITE) */
 .cal-day.is-event-day {
   background: rgba(255, 255, 255, 0.18);
   border: 2px solid #ffffff;
@@ -840,8 +882,8 @@ body {
 
 .cal-day.is-event-day:hover {
   background: rgba(255, 255, 255, 0.32);
-  transform: scale(1.04);
-  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(255, 255, 255, 0.65);
 }
 
 .cal-day.is-event-day .cal-day-num {
@@ -853,14 +895,13 @@ body {
 .reel-chip {
   background: var(--primary-pink);
   color: #fff;
-  border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 0.72rem;
+  border-radius: 8px;
+  padding: 5px 9px;
+  font-size: 0.74rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 6px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -869,14 +910,13 @@ body {
 .post-chip {
   background: var(--accent-gold);
   color: #0d060a;
-  border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 0.72rem;
+  border-radius: 8px;
+  padding: 5px 9px;
+  font-size: 0.74rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 6px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -885,14 +925,13 @@ body {
 .event-chip {
   background: #ffffff;
   color: #0d060a;
-  border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 0.72rem;
+  border-radius: 8px;
+  padding: 5px 9px;
+  font-size: 0.74rem;
   font-weight: 800;
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 6px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -900,12 +939,13 @@ body {
 }
 
 .reel-niche-preview {
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.73rem;
+  color: rgba(255, 255, 255, 0.88);
   font-weight: 500;
+  line-height: 1.35;
+  max-height: 2.7em;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .highlight-pink {
@@ -927,7 +967,7 @@ body {
 /* REELS DECK SECTION */
 .reels-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 24px;
 }
 
@@ -1045,7 +1085,7 @@ body {
 .reel-hover-tooltip {
   position: fixed;
   z-index: 1000;
-  width: 320px;
+  width: 330px;
   background: rgba(22, 9, 16, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -1261,7 +1301,7 @@ body {
   .hero-title { font-size: 2.3rem; }
   .nav-links { display: none; }
   .calendar-weekdays { font-size: 0.75rem; }
-  .cal-day { min-height: 80px; padding: 6px; }
+  .cal-day { min-height: 90px; padding: 8px; }
   .reel-chip, .post-chip, .event-chip { font-size: 0.62rem; padding: 2px 4px; }
   .ambience-grid { grid-template-columns: 1fr; }
   .interlocked-hearts-hero { width: 180px; height: 100px; }
