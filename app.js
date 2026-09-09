@@ -179,14 +179,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   let reelsData = initialContentData;
-  localStorage.setItem('twohearts_content_v8', JSON.stringify(reelsData));
+  localStorage.setItem('twohearts_content_v9', JSON.stringify(reelsData));
 
   function saveReelsData() {
-    localStorage.setItem('twohearts_content_v8', JSON.stringify(reelsData));
+    localStorage.setItem('twohearts_content_v9', JSON.stringify(reelsData));
   }
 
-  // 3. CALENDAR GENERATION (WELL-SPACED MONTH SECTIONS: SEPT 16-30 & OCT 1-16)
-  const calendarContainer = document.getElementById('calendar-days-container');
+  // 3. CALENDAR GENERATION (ROCK-SOLID SINGLE 7-COLUMN GRID WITH FULL-WIDTH MONTH BANNERS)
+  const daysGrid = document.getElementById('calendar-days-container');
   const tooltip = document.getElementById('reel-hover-tooltip');
   
   const ttReelNum = document.getElementById('tt-reel-num');
@@ -198,68 +198,59 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeFilter = 'all';
 
   function renderCalendar() {
-    calendarContainer.innerHTML = '';
+    daysGrid.innerHTML = '';
 
-    // Create Month Section 1: September 2026 (Sept 16 - Sept 30)
-    const septSection = createMonthBlock("September 2026", "Sept 16 – Sept 30", 2, 1, 30, "09");
-    calendarContainer.appendChild(septSection);
+    // --- SEPTEMBER 2026 BANNER ---
+    const septBanner = document.createElement('div');
+    septBanner.className = 'month-grid-banner';
+    septBanner.innerHTML = `<span>September 2026</span> <small>(Sept 16 – Sept 30)</small>`;
+    daysGrid.appendChild(septBanner);
 
-    // Create Month Section 2: October 2026 (Oct 1 - Oct 16)
-    const octSection = createMonthBlock("October 2026", "Oct 1 – Oct 16", 4, 1, 16, "10");
-    calendarContainer.appendChild(octSection);
-
-    renderReelsDeck();
-  }
-
-  function createMonthBlock(monthName, subtitle, startWeekdayIndex, startDay, endDay, monthStr) {
-    const monthBlock = document.createElement('div');
-    monthBlock.className = 'month-block-section';
-
-    const monthHeader = document.createElement('div');
-    monthHeader.className = 'month-block-header';
-    monthHeader.innerHTML = `
-      <div class="month-title-box">
-        <span class="month-name">${monthName}</span>
-        <span class="month-sub">${subtitle}</span>
-      </div>
-    `;
-    monthBlock.appendChild(monthHeader);
-
-    // Weekdays header
-    const weekdaysDiv = document.createElement('div');
-    weekdaysDiv.className = 'calendar-weekdays';
-    weekdaysDiv.innerHTML = `
-      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-    `;
-    monthBlock.appendChild(weekdaysDiv);
-
-    // Days Grid
-    const daysGrid = document.createElement('div');
-    daysGrid.className = 'calendar-days-grid';
-
-    // Empty padding slots
-    for (let i = 0; i < startWeekdayIndex; i++) {
+    // September padding (Sept 1, 2026 was Tuesday -> index 2)
+    const septStartWeekdayIndex = 2;
+    for (let i = 0; i < septStartWeekdayIndex; i++) {
       const emptyCell = document.createElement('div');
       emptyCell.className = 'cal-day empty';
       daysGrid.appendChild(emptyCell);
     }
 
-    // Populate days
-    for (let day = startDay; day <= endDay; day++) {
+    // Render September Days 1 to 30
+    for (let day = 1; day <= 30; day++) {
       const dayStr = day < 10 ? `0${day}` : `${day}`;
-      const fullDate = `2026-${monthStr}-${dayStr}`;
-      
-      const isInRange = monthStr === '09' ? day >= 16 : day <= 16;
+      const fullDate = `2026-09-${dayStr}`;
+      const isInRange = day >= 16;
       const item = reelsData[fullDate];
 
-      const cell = createDayCell(day, `${monthStr === '09' ? 'Sept' : 'Oct'} ${day}`, fullDate, isInRange, item);
-      if (cell) {
-        daysGrid.appendChild(cell);
-      }
+      const cell = createDayCell(day, `Sept ${day}`, fullDate, isInRange, item);
+      if (cell) daysGrid.appendChild(cell);
     }
 
-    monthBlock.appendChild(daysGrid);
-    return monthBlock;
+    // --- OCTOBER 2026 BANNER ---
+    const octBanner = document.createElement('div');
+    octBanner.className = 'month-grid-banner oct-banner';
+    octBanner.innerHTML = `<span>October 2026</span> <small>(Oct 1 – Oct 16)</small>`;
+    daysGrid.appendChild(octBanner);
+
+    // October padding (Oct 1, 2026 was Thursday -> index 4)
+    const octStartWeekdayIndex = 4;
+    for (let i = 0; i < octStartWeekdayIndex; i++) {
+      const emptyCell = document.createElement('div');
+      emptyCell.className = 'cal-day empty';
+      daysGrid.appendChild(emptyCell);
+    }
+
+    // Render October Days 1 to 16
+    for (let day = 1; day <= 16; day++) {
+      const dayStr = day < 10 ? `0${day}` : `${day}`;
+      const fullDate = `2026-10-${dayStr}`;
+      const isInRange = day <= 16;
+      const item = reelsData[fullDate];
+
+      const cell = createDayCell(day, `Oct ${day}`, fullDate, isInRange, item);
+      if (cell) daysGrid.appendChild(cell);
+    }
+
+    renderReelsDeck();
   }
 
   function createDayCell(dayNum, labelStr, fullDate, inRange, item) {
@@ -282,12 +273,12 @@ document.addEventListener('DOMContentLoaded', () => {
     cell.dataset.date = fullDate;
 
     if (!inRange) {
-      cell.style.opacity = '0.35';
+      cell.style.opacity = '0.3';
     }
 
     const header = document.createElement('div');
     header.className = 'cal-day-num';
-    header.innerHTML = `<span>${labelStr}</span> ${hasItem ? `<span class="day-status-dot"></span>` : ''}`;
+    header.innerHTML = `<span>${labelStr}</span>`;
     cell.appendChild(header);
 
     if (hasItem) {
@@ -303,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chip.innerHTML = `<i class="fa-solid fa-image"></i> <span>${item.numBadge}</span>`;
       } else if (item.type === 'event') {
         chip.className = 'event-chip';
-        chip.innerHTML = `<i class="fa-solid fa-star"></i> <span>${item.numBadge} (White)</span>`;
+        chip.innerHTML = `<i class="fa-solid fa-star"></i> <span>${item.numBadge}</span>`;
       }
       contentBox.appendChild(chip);
 
